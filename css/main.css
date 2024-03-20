@@ -3980,181 +3980,212 @@ footer a {
 /*# sourceMappingURL=main.css.map */
 
 
-#contact {
-	background: #151515;
-	padding-top: 12rem;
-	padding-bottom: 7.2rem;
+#contacto {
+  background: #151515;
+  padding-top: 12rem;
+  padding-bottom: 7.2rem;
 }
-#contact .section-intro h1 {
-	color: white;
+
+#contacto .section-intro h1 {
+  color: white;
 }
-#contact .section-intro h5 {
-	color: #FF0077;
+
+#contacto .section-intro h5 {
+  color: #FF0077;
 }
-#contact .section-intro p {
-	color: rgba(255, 255, 255, 0.7);
+
+#contacto .section-intro p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* contact form */
 .contact-form {
-	max-width: 740px;
+  max-width: 740px;
 }
 
 .contact-form ::-webkit-input-placeholder {
-	color: rgba(255, 255, 255, 0.3);
-}
-.contact-form :-moz-placeholder {
-	color: rgba(255, 255, 255, 0.3);  /* Firefox 18- */
-}
-.contact-form ::-moz-placeholder {
-	color: rgba(255, 255, 255, 0.3);  /* Firefox 19+ */
-}
-.contact-form :-ms-input-placeholder {
-	color: rgba(255, 255, 255, 0.3);
-}
-.contact-form .placeholder {
-	color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.3);
 }
 
-#contact form {
-	margin-top: 0;
-	margin-bottom: 3rem;
+.contact-form :-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
-#contact form .form-field {
-	position: relative;
+
+.contact-form ::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
-#contact form .form-field:before, #contact form .form-field:after {
-	content: "";
-	display: table;
+
+.contact-form :-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
-#contact form .form-field:after {
-	clear: both;
+
+.contact-form .placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
 }
-#contact form .form-field label {
-	font-family: "poppins-bold", sans-serif;
-	font-size: 1.1rem;
-	line-height: 2.4rem;
-	position: absolute;
-	bottom: -1.2rem;
-	right: .6rem;
-	text-transform: uppercase;
-	letter-spacing: .1rem;
-	padding: 0 2rem;
-	margin: 0;
-	color: #FFFFFF;
-	background: #FF0077;
+
+#contacto form {
+  margin-top: 0;
+  margin-bottom: 3rem;
 }
-#contact form .form-field label::after {
-	position: absolute;
-	left: -5px;
-	top: 50%;
-	margin-top: -6px;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-right: 5px solid #FF0077;
-	content: "";
+
+#contacto form .form-field {
+  position: relative;
 }
-#contact input[type="text"],
-#contact input[type="password"],
-#contact input[type="email"],
-#contact textarea {
-	width: 100%;
-	color: rgba(255, 255, 255, 0.9);
-	margin-bottom: 0;
-	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+#contacto form .form-field:before, #contacto form .form-field:after {
+  content: "";
+  display: table;
 }
-#contact input[type="text"],
-#contact input[type="password"],
-#contact input[type="email"] {
-	height: 6.6rem;
-	padding: 1.8rem 2rem;
+
+#contacto form .form-field:after {
+  clear: both;
 }
-#contact input[type="text"]:focus,
-#contact input[type="password"]:focus,
-#contact input[type="email"]:focus {
-	border-color: #FF0077;
-	color: #FFFFFF;
+
+#contacto form .form-field label {
+  font-family: "poppins-bold", sans-serif;
+  font-size: 1.1rem;
+  line-height: 2.4rem;
+  position: absolute;
+  bottom: -1.2rem;
+  right: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  padding: 0 2rem;
+  margin: 0;
+  color: #FFFFFF;
+  background: #FF0077;
 }
-#contact textarea {
-	min-height: 20rem;
-	padding: 1.8rem 2rem;
+
+#contacto form .form-field label::after {
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  margin-top: -6px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #FF0077;
+  content: "";
 }
-#contact textarea:focus {
-	border-color: #FF0077;
-	color: #FFFFFF;
+
+#contacto input[type="text"],
+#contacto input[type="password"],
+#contacto input[type="email"],
+#contacto textarea {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-#contact button.submitform {
-	font-size: 1.5rem;
-	display: block;
-	letter-spacing: .2rem;
-	height: 6.6rem;
-	line-height: 6.6rem;
-	padding: 0 3rem;
-	margin-top: 4.8rem;
-	width: 100%;
-	background: #FF0077;
-	color: #FFFFFF;
+
+#contacto input[type="text"],
+#contacto input[type="password"],
+#contacto input[type="email"] {
+  height: 6.6rem;
+  padding: 1.8rem 2rem;
 }
-#contact button.submitform:hover, #contact button.submitform:focus {
-	background: #cc005f;
+
+#contacto input[type="text"]:focus,
+#contacto input[type="password"]:focus,
+#contacto input[type="email"]:focus {
+  border-color: #FF0077;
+  color: #FFFFFF;
 }
+
+#contacto textarea {
+  min-height: 20rem;
+  padding: 1.8rem 2rem;
+}
+
+#contacto textarea:focus {
+  border-color: #FF0077;
+  color: #FFFFFF;
+}
+
+#contacto button.submitform {
+  font-size: 1.5rem;
+  display: block;
+  letter-spacing: .2rem;
+  height: 6.6rem;
+  line-height: 6.6rem;
+  padding: 0 3rem;
+  margin-top: 4.8rem;
+  width: 100%;
+  background: #FF0077;
+  color: #FFFFFF;
+}
+
+#contacto button.submitform:hover, #contacto button.submitform:focus {
+  background: #cc005f;
+}
+
 #message-warning, #message-success {
-	display: none;
-	background: #0d0d0d;
-	border-radius: 3px;
-	padding: 3rem;
-	margin-bottom: 3.6rem;
-	width: 100%;
+  display: none;
+  background: #0d0d0d;
+  border-radius: 3px;
+  padding: 3rem;
+  margin-bottom: 3.6rem;
+  width: 100%;
 }
+
 #message-warning {
-	color: #fa0003;
+  color: #fa0003;
 }
+
 #message-success {
-	color: #FF0077;
+  color: #FF0077;
 }
+
 #message-warning i, #message-success i {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 
 /* form loader */
 #submit-loader {
-	display: none;
-	position: relative;
-	left: 0;
-	top: 1.8rem;
-	width: 100%;
-	text-align: center;
+  display: none;
+  position: relative;
+  left: 0;
+  top: 1.8rem;
+  width: 100%;
+  text-align: center;
 }
+
 #submit-loader .text-loader {
-	display: none;
-	font-family: "poppins-bold", sans-serif;
-	color: #FFFFFF;
-	letter-spacing: .3rem;
-	text-transform: uppercase;
+  display: none;
+  font-family: "poppins-bold", sans-serif;
+  color: #FFFFFF;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
 }
+
 .oldie #submit-loader .s-loader {
-	display: none;
+  display: none;
 }
+
 .oldie #submit-loader .text-loader {
-	display: block;
+  display: block;
 }
+
 .contact-info {
-	margin: 4.8rem auto 0;
-	font-family: "poppins-regular", sans-serif;
-	font-size: 1.5rem;
-	text-align: center;
+  margin: 4.8rem auto 0;
+  font-family: "poppins-regular", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
 }
+
 .contact-info .collapse {
-	padding: 0;
+  padding: 0;
 }
+
 .contact-info .icon {
-	margin-bottom: 2.1rem;
+  margin-bottom: 2.1rem;
 }
+
 .contact-info .icon i {
-	font-size: 4.2rem;
-	color: #FFFFFF;
+  font-size: 4.2rem;
+  color: #FFFFFF;
 }
+
 .contact-info h5 {
-	color: #FF0077;
+  color: #FF0077;
 }
