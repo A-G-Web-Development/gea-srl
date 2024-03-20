@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>GEA S.R.L</title>
+  <title>GEA S.A.</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -18,6 +18,10 @@
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -38,7 +42,8 @@
 
     <div class="header-logo">
       <a href="/">
-        <img src="images/logo-sin-fondo-blanco.svg" alt="Homepage">
+        <!-- <img src="images/logo-sin-fondo-blanco.svg" alt="Homepage"> -->
+        <h1>GEA S.A.</h1>
       </a>
     </div>
 
@@ -93,7 +98,10 @@
 
       <div class="row home-content__main">
 
-        <h1>GEA S.R.L.</h1>
+        <!-- <h1>GEA S.A.</h1> -->
+        <div style="max-width: 600px;margin:auto;">
+          <img src="images/logo-sin-fondo-blanco.svg" alt="Homepage">
+        </div>
 
         <h3>Empresa dedicada al Mantenimiento Integral</h3>
 
@@ -154,7 +162,7 @@
         <p class="lead">Sabemos de los inconvenientes de contar en cada momento con personal altamente especializado, con el costo que ello significa, en la gran dispersión de cambios y varia- ciones técnicas que su empresa necesita o desea implementar.</p>
         <p class="lead">Es nuestra preocupación poder satisfacer sus necesidades de Mantenimiento dentro de los tiempos necesarios con la aptitud y eficiencia esperada por Uds.</p>
         <p class="lead">Quienes dirigimos GEA SRL, estamos vocacionalmente comprometidos con el concepto "servicio" y trabajamos día a día para desarrollar plenamente una sociedad estratégica entre proveedor y cliente para la obtención de mutuos beneficios.</p>
-        <p class="lead parrafo-oculto">Los 5 años de experiencia en el mercado de servicios de suministro de mano de obra especializada, nos permite exhibir logros significativos que sustentan nuestra propuesta e idoneidad empresaria, avalados por nuestra solvencia económica y un concepto de cumplimiento puntual de obligaciones sociales y fiscales.</p>
+        <p class="lead parrafo-oculto">Los 10 años de experiencia en el mercado de servicios de suministro de mano de obra especializada, nos permite exhibir logros significativos que sustentan nuestra propuesta e idoneidad empresaria, avalados por nuestra solvencia económica y un concepto de cumplimiento puntual de obligaciones sociales y fiscales.</p>
         <p class="lead parrafo-oculto">Nos encontramos a su disposición para realizar un relevamiento de sus instalaciones sin compromiso, desarrollar una propuesta a la medida de sus requerimientos de Manteni- miento, y poder demostrar los valores y beneficios de nuestros servicios ofrecidos.</p>
         <button id="ver-mas-btn" style="padding-inline: 25px;">Ver más</button>
       </div>
@@ -341,7 +349,7 @@
         </div>
       </div>
 
-      <div class="col-block item-service" data-duration='100' data-aos-delay='50' data-aos="fade-up">
+      <!-- <div class="col-block item-service" data-duration='100' data-aos-delay='50' data-aos="fade-up">
         <div class="item-service__icon">
           <i class="icon-pie-chart"></i>
         </div>
@@ -350,7 +358,7 @@
           <p>Involucra a todo tipo de Elevadores verticales y Montacargas que se encuentra dentro del perímetro de la Empresa a Mantener, contando con Empresas autorizadas para realizar el mantenimiento de acuerdo a normas.
           </p>
         </div>
-      </div>
+      </div> -->
 
       <div class="col-block item-service" data-duration='100' data-aos-delay='50' data-aos="fade-up">
         <div class="item-service__icon">
@@ -401,7 +409,7 @@
     <div class="row gap-4">
       <div class="grid grid-cols-1 md:grid-cols-2 mb-[7.25rem] gap-6" data-duration='100' data-aos-delay='50' data-aos="fade-up">
         <div class="order-last md:order-first flex justify-center">
-          <img src="images/mantenimiento1.jpg" style="max-height: 500px;" class="img-responsive">
+          <img src="images/mantenimiento1.jpg" style="max-height: 500px;object-fit: contain;" class="img-responsive">
         </div>
         <div class="px-4">
           <h2 class="subhead">Mantenimiento Preventivo</h2>
@@ -414,7 +422,7 @@
           <p style="font-size: 2rem;">Al mantenimiento preventivo efectuado a una entidad de acuerdo a un parámetro establecido en función del tiempo (horas de funcionamiento) ó, número de unidades producidas.</p>
         </div>
         <div class="flex justify-center">
-          <img src="images/mantenimiento2.jpg" style="max-height: 500px;" class="img-responsive">
+          <img src="images/mantenimiento2.jpg" style="max-height: 500px;object-fit: contain;" class="img-responsive">
         </div>
       </div>
     </div>
@@ -458,7 +466,7 @@
           }
         </style>
 
-        <div class="flex flex-wrap gap-16 justify-center">
+        <div class="flex flex-wrap gap-16 justify-center pb-12">
           <img src="images/clientes/axion.png" alt="Logo de Axion" class="image-container">
           <img src="images/clientes/banco-de-chubut.png" alt="Logo del Banco de Chubut" class="image-container">
           <img src="images/clientes/osde.png" alt="Logo de OSDE" class="image-container">
@@ -474,7 +482,10 @@
 
 
         <ul class="clients">
-          <li><a href="#">Constructora Las Grutas</a></li>
+          <li><a class="archivo-black-regular cursor-default">
+              <p class="pb-0">Constructora</p>
+              Las Grutas
+            </a></li>
         </ul>
       </div>
     </div>
@@ -575,7 +586,7 @@
 
     </div>
 
-    <div class="row contact-info">
+    <div class="row contact-info flex flex-col sm:flex-row gap-y-24">
 
       <div class="col-four tab-full">
 
@@ -587,7 +598,7 @@
 
         <p>
           San Martín 1791<br>
-          Neuquén Capital<br>
+          San Antonio Oeste<br>
           Argentina
         </p>
 
