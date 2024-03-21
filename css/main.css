@@ -1742,6 +1742,7 @@ body.menu-is-open {
   position: fixed;
   right: 8rem;
   top: 30px;
+  border-radius: 1rem;
 }
 
 .header-menu-toggle.opaque {
@@ -1909,7 +1910,7 @@ body.menu-is-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #111111;
+  background-color: #1f1f1f;
   opacity: .7;
   z-index: 2;
 }
