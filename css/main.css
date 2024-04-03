@@ -4079,6 +4079,17 @@ footer a {
   border-color: #d7208a;
 }
 
+#ver-mas-btn2 {
+  background: #e23c9c;
+  border-color: #e23c9c;
+  color: white;
+}
+
+#ver-mas-btn2:hover {
+  background: #d7208a;
+  border-color: #d7208a;
+}
+
 #infinite-carousel-wrapper {
   overflow: hidden;
   display: flex;
