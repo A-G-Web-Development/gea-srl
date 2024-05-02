@@ -1,0 +1,58 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Obtener el formulario por su ID
+  const form = document.getElementById("contactForm");
+
+  // Manejar el evento submit del formulario
+  form.addEventListener("submit", function (event) {
+    // Prevenir que el formulario se envíe de manera convencional
+    event.preventDefault();
+
+    // Obtener los valores de los campos del formulario
+    const formData = new FormData(form);
+    const name = formData.get("contactName");
+    const email = formData.get("contactEmail");
+    const message = formData.get("contactMessage");
+
+    // Crear un objeto con los datos del formulario
+    const data = {
+      to: "webdevelopment.ag@gmail.com", // Reemplaza con la dirección de correo electrónico del destinatario
+      titulo: "Nuevo mensaje de contacto",
+      texto: message,
+      subject: "Nuevo mensaje de contacto",
+      fromEmail: email,
+      fromNombre: name,
+    };
+
+    // Hacer una solicitud POST a tu endpoint con los datos del formulario
+    fetch("https://api.mpconfort.com.ar/api/send-email", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        console.log(res);
+        if (!response.ok) {
+          throw new Error("Hubo un problema al enviar el correo.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Respuesta del servidor:", data);
+        // Aquí puedes realizar acciones adicionales según la respuesta del servidor
+        alert("Correo electrónico enviado correctamente");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Manejar errores aquí
+        alert(
+          "Hubo un problema al enviar el correo. Por favor, inténtalo de nuevo más tarde."
+        );
+      });
+
+    // Resetear el formulario después de procesar los datos
+    form.reset();
+  });
+});
