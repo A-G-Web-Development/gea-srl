@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Hacer una solicitud POST a tu endpoint con los datos del formulario
-    fetch("https://api.mpconfort.com.ar/api/send-email", {
+    fetch("https://api.mpconfort.com.ar/api/send-email-externo", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,20 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        console.log(res);
+        console.log(response);
         if (!response.ok) {
           throw new Error("Hubo un problema al enviar el correo.");
+        } else {
+          alert("Correo electrónico enviado correctamente");
         }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Respuesta del servidor:", data);
-        // Aquí puedes realizar acciones adicionales según la respuesta del servidor
-        alert("Correo electrónico enviado correctamente");
       })
       .catch((error) => {
-        console.error("Error:", error);
-        // Manejar errores aquí
         alert(
           "Hubo un problema al enviar el correo. Por favor, inténtalo de nuevo más tarde."
         );
