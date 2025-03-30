@@ -161,22 +161,6 @@
     };
 
 
-   /* slick slider
-    * ------------------------------------------------------ */
-    var ssSlickSlider = function() {
-        
-        $('.testimonials__slider').slick({
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            pauseOnFocus: false,
-            autoplaySpeed: 1500
-        });
-    };
-
-
    /* Smooth Scrolling
     * ------------------------------------------------------ */
     var ssSmoothScroll = function() {
@@ -240,7 +224,6 @@
         ssOffCanvas();
         ssMasonryFolio();
         ssPhotoswipe();
-        ssSlickSlider();
         ssSmoothScroll();
         ssAlertBoxes();
         ssAOS();
