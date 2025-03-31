@@ -1,0 +1,89 @@
+<section id="quienes-somos" class="s-about target-section">
+  <div
+    class="row section-header bit-narrow"
+    data-duration="100"
+    data-aos-delay="50"
+    data-aos="fade-up"
+  >
+    <div class="col-full">
+      <h3 class="subhead">Quienes somos</h3>
+      <h1 class="display-1">
+        GEA SRL se ha constituido para atender todas las necesidades de
+        Mantenimiento Integral
+        <!-- que requiera su Comercio, Oficinas, Depósitos, Complejo Habitacional, Establecimiento, etc. -->
+      </h1>
+    </div>
+  </div>
+
+  <style>
+    .parrafo-oculto {
+      display: none;
+    }
+  </style>
+
+  <div
+    class="row bit-narrow"
+    data-duration="100"
+    data-aos-delay="50"
+    data-aos="fade-up"
+  >
+    <div class="col-full">
+      <p class="lead">
+        Sabemos de los inconvenientes de contar en cada momento con personal
+        altamente especializado, con el costo que ello significa, en la gran
+        dispersión de cambios y varia- ciones técnicas que su empresa necesita o
+        desea implementar.
+      </p>
+      <p class="lead">
+        Es nuestra preocupación poder satisfacer sus necesidades de
+        Mantenimiento dentro de los tiempos necesarios con la aptitud y
+        eficiencia esperada por Uds.
+      </p>
+      <p class="lead">
+        Quienes dirigimos GEA SRL, estamos vocacionalmente comprometidos con el
+        concepto "servicio" y trabajamos día a día para desarrollar plenamente
+        una sociedad estratégica entre proveedor y cliente para la obtención de
+        mutuos beneficios.
+      </p>
+      <p class="lead parrafo-oculto">
+        Los 10 años de experiencia en el mercado de servicios de suministro de
+        mano de obra especializada, nos permite exhibir logros significativos
+        que sustentan nuestra propuesta e idoneidad empresaria, avalados por
+        nuestra solvencia económica y un concepto de cumplimiento puntual de
+        obligaciones sociales y fiscales.
+      </p>
+      <p class="lead parrafo-oculto">
+        Nos encontramos a su disposición para realizar un relevamiento de sus
+        instalaciones sin compromiso, desarrollar una propuesta a la medida de
+        sus requerimientos de Manteni- miento, y poder demostrar los valores y
+        beneficios de nuestros servicios ofrecidos.
+      </p>
+      <button
+        id="ver-mas-btn"
+        style="padding-inline: 25px"
+        data-duration="100"
+        data-aos-delay="50"
+        data-aos="fade-up"
+      >
+        Ver más
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let verMasBtn = document.getElementById("ver-mas-btn");
+    let parrafosOcultos = document.querySelectorAll(".parrafo-oculto");
+
+    verMasBtn.addEventListener("click", () => {
+      parrafosOcultos.forEach((parrafo) => {
+        parrafo.classList.toggle("parrafo-oculto");
+      });
+
+      if (verMasBtn.innerText.trim() == "Ver más") {
+        verMasBtn.innerText = "Ver menos";
+      } else {
+        verMasBtn.innerText = "Ver más";
+      }
+    });
+  </script>
+</section>

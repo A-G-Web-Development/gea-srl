@@ -1,0 +1,85 @@
+<header class="s-header">
+  <div class="header-logo">
+    <a href="/">
+      <!-- <img src="../assets/images/logo-sin-fondo-blanco.svg" alt="Homepage"> -->
+      <h1>GEA S.R.L.</h1>
+    </a>
+  </div>
+
+  <nav class="header-nav">
+    <a href="#" class="header-nav__close" title="close"><span>Close</span></a>
+
+    <h3>Navegar hacia</h3>
+
+    <div class="header-nav__content">
+      <ul class="header-nav__list">
+        <li>
+          <a class="smoothscroll" href="#inicio" title="inicio">Inicio</a>
+        </li>
+        <li>
+          <a class="smoothscroll" href="#quienes-somos" title="quienes somos"
+            >Quienes Somos</a
+          >
+        </li>
+        <li>
+          <a class="smoothscroll" href="#beneficios" title="beneficios"
+            >Beneficios</a
+          >
+        </li>
+        <li>
+          <a class="smoothscroll" href="#servicios" title="servicios"
+            >Servicios</a
+          >
+        </li>
+        <li>
+          <a class="smoothscroll" href="#mantenimiento" title="mantenimiento"
+            >Mantenimiento</a
+          >
+        </li>
+        <li>
+          <a class="smoothscroll" href="#clientes" title="clientes">Clientes</a>
+        </li>
+        <li>
+          <a class="smoothscroll" href="#contacto" title="contacto">Contacto</a>
+        </li>
+      </ul>
+
+      <ul class="header-nav__social">
+        <!-- <li>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li> -->
+        <li>
+          <a href="https://www.instagram.com/geasrl.ar/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <a class="header-menu-toggle" href="#">
+    <span class="header-menu-icon"></span>
+  </a>
+</header>
+
+<script>
+  // Aquí puedes incluir cualquier JavaScript necesario para la funcionalidad del menú
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".header-menu-toggle");
+    const navClose = document.querySelector(".header-nav__close");
+    const headerNav = document.querySelector(".header-nav");
+
+    menuToggle?.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.toggle("menu-is-open");
+    });
+
+    navClose?.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.remove("menu-is-open");
+    });
+  });
+</script>

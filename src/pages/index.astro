@@ -1,8 +1,32 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import Beneficios from "../components/Beneficios.astro";
+import Clientes from "../components/Clientes.astro";
+import Contacto from "../components/Contacto.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Mantenimiento from "../components/Mantenimiento.astro";
+import QuienesSomos from "../components/QuienesSomos.astro";
+import Servicios from "../components/Servicios.astro";
+
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Welcome />
+  <Header />
+
+  <Hero />
+  <QuienesSomos />
+  <Beneficios />
+  <Servicios />
+  <Mantenimiento />
+  <Clientes />
+  <Contacto />
+
+  <Footer />
+
+  <script src="/src/assets/js/handleSubmit.js" defer></script>
+  <script src="/src/assets/js/jquery-3.2.1.min.js" defer></script>
+  <script src="/src/assets/js/plugins.js" defer></script>
+  <script src="/src/assets/js/main.js" defer></script>
 </Layout>

@@ -1,0 +1,129 @@
+---
+import logoSinFondo from "../assets/images/logo-sin-fondo.svg";
+---
+
+<section id="contacto">
+  <div
+    class="row section-header text-center narrow"
+    data-duration="100"
+    data-aos-delay="50"
+    data-aos="fade-up"
+  >
+    <div class="col-full">
+      <h3 class="subhead">Contacto</h3>
+      <h1 class="display-1">No dudes en comunicarte con nosotros</h1>
+    </div>
+  </div>
+
+  <div class="row contact-form">
+    <div class="col-twelve">
+      <form name="contactForm" id="contactForm" method="post" action="">
+        <fieldset>
+          <div class="form-field">
+            <input
+              name="contactName"
+              type="text"
+              id="contactName"
+              placeholder="Nombre"
+              value=""
+              minlength="2"
+              required=""
+            />
+          </div>
+          <div class="form-field">
+            <input
+              name="contactEmail"
+              type="email"
+              id="contactEmail"
+              placeholder="Email"
+              value=""
+              required=""
+            />
+          </div>
+
+          <div class="form-field">
+            <textarea
+              name="contactMessage"
+              id="contactMessage"
+              placeholder="Mensaje"
+              rows="10"
+              cols="50"
+              required=""></textarea>
+          </div>
+          <div class="form-field">
+            <button type="submit" class="submitform">Enviar</button>
+            <div id="submit-loader">
+              <div class="text-loader">Enviando...</div>
+              <div class="s-loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <div id="message-warning"></div>
+      <div id="message-success">
+        <i class="fa fa-check"></i>
+        Su mensaje a sido enviado, muchas gracias!<br />
+      </div>
+    </div>
+  </div>
+
+  <div class="row contact-info flex flex-col sm:flex-row gap-y-24">
+    <div class="col-four tab-full">
+      <div class="icon">
+        <i class="icon-pin"></i>
+      </div>
+
+      <h5>Direccion</h5>
+
+      <p style="line-height: 1.4;">
+        San Martín 1791<br />
+        San Antonio Oeste<br />
+        Argentina
+      </p>
+    </div>
+
+    <div class="col-four tab-full">
+      <div class="icon">
+        <i class="icon-mail"></i>
+      </div>
+
+      <h5>Correo</h5>
+
+      <p>contacto@geasrl.com.ar</p>
+    </div>
+
+    <div class="col-four tab-full">
+      <div class="icon">
+        <i class="icon-phone"></i>
+      </div>
+
+      <h5>Teléfono</h5>
+
+      <p>02920 15612855</p>
+    </div>
+
+    <div class="col-four tab-full">
+      <a href="https://www.instagram.com/geasrl.ar/" target="_blank">
+        <div class="icon">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </div>
+
+        <h5>Instagram</h5>
+        <p class="text-white">GEA SRL</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="mx-16">
+    <div class="tab-full" style="width: 100%">
+      <div style="max-width: 450px; margin: auto">
+        <img src={logoSinFondo.src} alt="Homepage" />
+      </div>
+    </div>
+  </div>
+</section>
