@@ -3284,3 +3284,11 @@ footer a {
     transform: translate3d(-50%, 0, 0);
   }
 }
+
+.parrafo-oculto {
+    display: none;
+}
+
+.parrafo-oculto2 {
+    display: none;
+}
