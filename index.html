@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="/images/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="GEA S.R.L.">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="manifest" href="/images/favicons/site.webmanifest">
     <link rel="canonical" href="https://geasrl.com.ar">
@@ -52,6 +52,7 @@
 </head>
 
 <body id="top">
+    <noscript> You need to enable JavaScript to run this app. </noscript>
     <header class="s-header">
         <div class="header-logo">
             <a href="/">
@@ -91,13 +92,15 @@
 
                 <ul class="header-nav__social">
                     <li>
-                        <a href="https://www.instagram.com/geasrl.ar/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/geasrl.ar/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <a class="header-menu-toggle" href="#">
+        <a class="header-menu-toggle" href="#" title="menu">
             <span class="header-menu-icon"></span>
         </a>
     </header>
@@ -110,10 +113,10 @@
         <div class="home-content">
             <div class="row home-content__main">
                 <div style="max-width: 600px; margin: auto">
-                    <img src="images/logo-sin-fondo.svg" alt="Homepage">
+                    <img src="images/logo-sin-fondo.svg" alt="logo gea srl" fetchpriority="high" width="600" height="323">
                 </div>
 
-                <h3>Empresa dedicada al Mantenimiento Integral</h3>
+                <h2>Empresa dedicada al Mantenimiento Integral</h2>
 
                 <div class="home-content__button">
                     <a href="#quienes-somos" class="smoothscroll btn btn--primary btn--large">
@@ -412,7 +415,7 @@
         <div class="row gap-4">
             <div class="grid grid-cols-1 md:grid-cols-2 mb-[7.25rem] gap-6" data-duration="100" data-aos-delay="50" data-aos="fade-up">
                 <div class="order-last md:order-first flex justify-center">
-                    <img src="images/mantenimiento1.jpg" alt="mantenimiento preventivo" style="max-height: 500px; object-fit: contain" class="img-responsive">
+                    <img src="images/mantenimiento1.jpg" alt="mantenimiento preventivo" loading="lazy" style="max-height: 500px; object-fit: contain" class="img-responsive" width="500" height="500">
                 </div>
                 <div class="px-4">
                     <h2 class="subhead">Mantenimiento Preventivo</h2>
@@ -429,7 +432,7 @@
                     </p>
                 </div>
                 <div class="flex justify-center">
-                    <img src="images/mantenimiento2.jpg" alt="mantenimiento ciclico" style="max-height: 500px; object-fit: contain" class="img-responsive">
+                    <img src="images/mantenimiento2.jpg" alt="mantenimiento ciclico" loading="lazy" style="max-height: 500px; object-fit: contain" width="500" height="500" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -443,96 +446,82 @@
             </div>
         </div>
 
-        <div class="row clients-wrap hidden" data-duration="100" data-aos-delay="50" data-aos="fade-up">
-            <div class="col-twelve">
-                <ul class="clients">
-                    <li><a href="#0">Axion</a></li>
-                    <li><a href="#0">Banco de Chubut</a></li>
-                    <li><a href="#0">OSDE</a></li>
-                    <li><a href="#0">AcaSalud</a></li>
-                    <li><a href="#0">C.E.C</a></li>
-                    <li><a href="#0">UP Ter</a></li>
-                    <li><a href="#0">Shell</a></li>
-                    <li><a href="#0">Casino del Río</a></li>
-                </ul>
-            </div>
-        </div>
         <div id="infinite-carousel-wrapper" data-aos="fade-in">
             <div id="infinite-carousel">
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/aca-salud.png" alt>
+                    <img src="./images/clientes/aca-salud.png" loading="lazy" alt="logo aca salud" width="202" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/aspa.png" alt>
+                    <img src="./images/clientes/aspa.png" loading="lazy" alt="logo aspa" width="431" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/axion.png" alt>
+                    <img src="./images/clientes/axion.png" loading="lazy" alt="logo axion" width="74" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/banco-de-chubut.png" alt>
+                    <img src="./images/clientes/banco-de-chubut.png" loading="lazy" alt="logo banco de chubut" width="416" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/casino-del-rio.png" alt>
+                    <img src="./images/clientes/casino-del-rio.png" loading="lazy" alt="logo casino del rio" width="159" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/cec.webp" alt>
+                    <img src="./images/clientes/cec.webp" loading="lazy" alt="logo cec" width="100" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/osde.png" alt>
+                    <img src="./images/clientes/osde.png" loading="lazy" alt="logo osde" width="260" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/pozzo-ardizzi.png" alt>
+                    <img src="./images/clientes/pozzo-ardizzi.png" loading="lazy" alt="logo pozzo ardizzi" width="154" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/cra.png" alt>
+                    <img src="./images/clientes/cra.png" loading="lazy" alt="logo cra" width="400" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/Shell_logo.svg.png" alt>
+                    <img src="./images/clientes/Shell_logo.svg.png" loading="lazy" alt="logo shell" width="108" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/unter.png" alt>
+                    <img src="./images/clientes/unter.png" loading="lazy" alt="logo unter" width="132" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/wfs.png" alt>
+                    <img src="./images/clientes/wfs.png" loading="lazy" alt="logo wfs" width="90" height="100">
                 </div>
 
                 <!--   ALL SLIDES HAVE TO BE CLONED   -->
 
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/aca-salud.png" alt>
+                    <img src="./images/clientes/aca-salud.png" loading="lazy" alt="logo aca salud" width="202" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/aspa.png" alt>
+                    <img src="./images/clientes/aspa.png" loading="lazy" alt="logo aspa" width="431" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/axion.png" alt>
+                    <img src="./images/clientes/axion.png" loading="lazy" alt="logo axion" width="74" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/banco-de-chubut.png" alt>
+                    <img src="./images/clientes/banco-de-chubut.png" loading="lazy" alt="logo banco de chubut" width="416" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/casino-del-rio.png" alt>
+                    <img src="./images/clientes/casino-del-rio.png" loading="lazy" alt="logo casino del rio" width="159" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/cec.webp" alt>
+                    <img src="./images/clientes/cec.webp" loading="lazy" alt="logo cec" width="100" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/osde.png" alt>
+                    <img src="./images/clientes/osde.png" loading="lazy" alt="logo osde" width="260" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/pozzo-ardizzi.png" alt>
+                    <img src="./images/clientes/pozzo-ardizzi.png" loading="lazy" alt="logo pozzo ardizzi" width="154" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/cra.png" alt>
+                    <img src="./images/clientes/cra.png" loading="lazy" alt="logo cra" width="400" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/Shell_logo.svg.png" alt>
+                    <img src="./images/clientes/Shell_logo.svg.png" loading="lazy" alt="logo shell" width="108" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/unter.png" alt>
+                    <img src="./images/clientes/unter.png" loading="lazy" alt="logo unter" width="132" height="100">
                 </div>
                 <div class="infinite-carousel-slide">
-                    <img src="./images/clientes/wfs.png" alt>
+                    <img src="./images/clientes/wfs.png" loading="lazy" alt="logo wfs" width="90" height="100">
                 </div>
             </div>
         </div>
@@ -550,15 +539,16 @@
             <div class="col-twelve">
                 <form name="contactForm" id="contactForm">
                     <fieldset>
+                        <legend class="sr-only">Contacto</legend>
                         <div class="form-field">
-                            <input name="contactName" type="text" id="contactName" placeholder="Nombre" value minlength="2" required>
+                            <input name="contactName" type="text" id="contactName" placeholder="Nombre" value minlength="2" required aria-label="Nombre">
                         </div>
                         <div class="form-field">
-                            <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value required>
+                            <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value required aria-label="Email">
                         </div>
 
                         <div class="form-field">
-                            <textarea name="contactMessage" id="contactMessage" placeholder="Mensaje" rows="10" cols="50" required></textarea>
+                            <textarea name="contactMessage" id="contactMessage" placeholder="Mensaje" rows="10" cols="50" required aria-label="Mensaje"></textarea>
                         </div>
                         <div class="form-field">
                             <button type="submit" class="submitform">Enviar</button>
@@ -584,11 +574,11 @@
 
         <div class="row contact-info flex flex-col sm:flex-row gap-y-24">
             <div class="col-four tab-full">
-                <a href="#">
+                <a href="https://www.google.com/maps?q=San+Martín+1791+San+Antonio+Oeste" target="_blank">
                     <div class="icon">
                         <i class="icon-pin"></i>
                     </div>
-                    <h5>Direccion</h5>
+                    <span>Direccion</span>
                     <p>
                         San Martín 1791<br>
                         San Antonio Oeste<br>
@@ -598,21 +588,21 @@
             </div>
 
             <div class="col-four tab-full">
-                <a href="#">
+                <a href="mailto:contacto@geasrl.com.ar">
                     <div class="icon">
                         <i class="icon-mail"></i>
                     </div>
-                    <h5>Correo</h5>
+                    <span>Correo</span>
                     <p>contacto@geasrl.com.ar</p>
                 </a>
             </div>
 
             <div class="col-four tab-full">
-                <a href="#">
+                <a href="tel:0292015612855">
                     <div class="icon">
                         <i class="icon-phone"></i>
                     </div>
-                    <h5>Teléfono</h5>
+                    <span>Teléfono</span>
                     <p>02920 15612855</p>
                 </a>
             </div>
@@ -623,7 +613,7 @@
                         <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
 
-                    <h5>Instagram</h5>
+                    <span>Instagram</span>
                     <p>GEA SRL</p>
                 </a>
             </div>
@@ -633,7 +623,7 @@
             <div class="tab-full" style="width: 100%">
                 <a href="#">
                     <div style="max-width: 450px; margin: auto">
-                        <img src="images/logo-sin-fondo.svg" alt="Homepage">
+                        <img src="images/logo-sin-fondo.svg" loading="lazy" alt="logo gea srl" width="450" height="242">
                     </div>
                 </a>
             </div>
