@@ -122,9 +122,9 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 - [ ] 🟥 **HTML5 Elementos Semanticos**
 - [ ] 🟥 **Página error 404**
 - [ ] 🟥 **Error pages:** Error 5xx. Tienen que tener su css integrado
-- [ ] 🟨 **Noopener:** Para cada link con `target="_blank"`, agregarle `rel="noopener"`
-- [ ] 🟩 **Borrar comentarios**
-- [ ] 🟨 Los elementos sin etiqueta de cierre no necesitan cerrarce con la barra (/)
+- [X] 🟨 **Noopener:** Para cada link con `target="_blank"`, agregarle `rel="noopener noreferrer"`
+- [X] 🟩 **Borrar comentarios**
+- [X] 🟨 Los elementos sin etiqueta de cierre no necesitan cerrarce con la barra (/)
 - [X] 🟨 **Adblockers test:** Probar que ande todo bien con adblock
 - [ ] 🟨 **Minificar HTML**
 - [X] 🟥 **Evitar iframes innecesarios**
@@ -149,8 +149,8 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
 - [X] 🟥 **Diseño responsive**
 - [X] 🟥 **ID unicos**
-- [ ] 🟥 **Desktop Browsers:** All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).
-- [ ] 🟥 **Mobile Browsers:** All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).
+- [X] 🟥 **Desktop Browsers:** All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).
+- [X] 🟥 **Mobile Browsers:** All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).
 - [ ] 🟥 **OS:** All pages were tested on all current OS (Windows, Android, iOS, Mac...).
 
 ---
@@ -192,60 +192,109 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
 ### HTACCESS
 
-- [X] 🟨 **HTTP Strict Transport Security (HSTS):** En el .htaccess poner lo siguiente para evitar que no usen https
+- [X] 🟨 **Configurar .htaccess**
 
 ```html
-<IfModule mod_headers.c>
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+# Variables de configuración para caché (modifica estos valores según necesites)
+# ============================================================
+# Tiempo de caché general en segundos (86400 = 1 día)
+SetEnv CACHE_TIME 86400
+# Tiempo de caché para recursos estáticos en segundos (31536000 = 1 año)
+SetEnv CACHE_TIME_STATIC 31536000
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
+
+<IfModule mod_headers.c>
+  # Obliga a los navegadores a usar HTTPS para todas las conexiones futuras
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Evita ataques de tipo MIME sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Evita que el sitio sea cargado en iframes de otros dominios
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Activa la protección XSS integrada en navegadores más antiguos
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Controla la información que se envía en el encabezado Referer
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Define qué recursos puede cargar el navegador (personalizar segun cada página)
+  # Header set Content-Security-Policy "
+  #   default-src 'none';
+  #   script-src 'self' https://www.googletagmanager.com https://cdn.tailwindcss.com 'unsafe-inline';
+  #   style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+  #   font-src 'self' https://fonts.gstatic.com;
+  #   img-src 'self' data:;
+  #   connect-src 'self';
+  #   frame-ancestors 'none';
+  #   base-uri 'self';
+  #   form-action 'self';
+  # "
+
+  # Controla qué características y APIs pueden usar el sitio web
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), sync-xhr=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), xr-spatial-tracking=(), autoplay=()"
+  
+  # Previene problemas de caché relacionados con la compresión
+  Header set Vary "Accept-Encoding"
+  
+  # Cache-Control General - COMENTADO para evitar problemas durante el desarrollo
+  # Header set Cache-Control "public, max-age=%{CACHE_TIME}e"
+  
+  # Cache-Control para archivos estáticos - COMENTADO para evitar problemas durante el desarrollo
+  # <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2)$">
+  #   Header set Cache-Control "public, max-age=%{CACHE_TIME_STATIC}e"
+  # </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # Comprimir tipos de contenido
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/x-javascript text/javascript
+  
+  # También comprimir archivos por extensión
+  <FilesMatch "\.(js|css|html|htm|php|xml)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+# Configuración de caché para tipos específicos de archivos - COMENTADO para desarrollo
+# ============================================================
+# <IfModule mod_expires.c>
+#   ExpiresActive On
+#   ExpiresByType application/javascript "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType text/css "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/png "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/jpg "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/jpeg "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/gif "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/svg+xml "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/webp "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType font/woff "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType font/woff2 "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType application/font-woff "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType application/font-woff2 "access plus %{CACHE_TIME_STATIC}e seconds"
+# </IfModule>
+
+# Prevenir acceso a archivos sensibles
+# ============================================================
+<FilesMatch "(^\.htaccess|\.htpasswd|\.git|\.env|composer\.json|composer\.lock|package\.json|package-lock\.json|config\.php|wp-config\.php)">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Desactivar listado de directorios, no se muestra nada si no hay un index.{extension} en la carpeta
+# ============================================================
+Options -Indexes
+
+# Nota: Para que HSTS preload funcione, hay que registrar el dominio en https://hstspreload.org/#submission-form
 ```
 
 * [Registrar dominio](https://hstspreload.org/#submission-form "para que preload funcione, hay que registrar el dominio en una lista que lo habilita")
-
-- [X] 🟨 **Content Type Options:** Agregar al htaccess (evita ataques de archivos sin extensión)
-
-```html
-Header set X-Content-Type-Options "nosniff"
-```
-
-- [X] 🟨 **X-Frame-Options (XFO):** Agregar al htaccess (evita que otras personas inserten el sitio en un iframe, evita ataques de pishing)
-
-```html
-Header set X-Frame-Options "SAMEORIGIN"
-```
-
-- [X] 🟨 **Content Security Policy:** Agregar al htaccess y personalizar segun cada página (este es muy complejo, sirve para evitar que inyecten codigo)
-
-```html
-# Content Security Policy (CSP)
-Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://ejemplo-cdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'"
-
-# Configuración completa
-# Security Headers
-Header set X-Content-Type-Options "nosniff"
-Header set X-Frame-Options "SAMEORIGIN"
-Header set X-XSS-Protection "1; mode=block"
-Header set Referrer-Policy "strict-origin-when-cross-origin"
-Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'"
-```
-
-- [X] 🟨 **Permissions-Policy:** Agregar al htaccess y personalizar segun cada página según los permisos que necesite (sirve para que los atacantes no puedan usar estos recursos)
-
-```html
-Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), sync-xhr=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), speaker=(), ambient-light-sensor=(), vr=(), autoplay=()"
-```
-
-- [ ] 🟩 **Cache-Control:** Para guardar en cache los recursos de la página en el servidor, aumenta el rendimiento (CALCULAR BIEN EL TIEMPO DE GUARDADO (hacerlo como ultimo paso porque puede evitar que se vea contenido nuevo), el ejemplo es de un día)
-
-```html
-Header set Cache-Control "public, max-age=86400"
-```
-
-- [X] 🟩 **Vary:** Evita errores de cache
-
-```html
-Header set Vary "Accept-Encoding"
-```
 
 ### Headers HTTP
 
@@ -289,9 +338,9 @@ Header set Vary "Accept-Encoding"
 #### Headings
 
 - [X] 🟥 **H1:** Todas las páginas tienen un helemento `<h1>`
-- [ ] 🟥 **Headings:** Mantener el orden de los encabezados de H1 a H6 sin saltarse ninguno
-- [ ] 🟨 **Input types usados correctamente**
-- [ ] 🟥 **Label:** Cada input debe tener un label asociado. Si no se puede mostrar la etiqueta visualmente, usar aria-label="Nombre"
+- [X] 🟥 **Headings:** Mantener el orden de los encabezados de H1 a H6 sin saltarse ninguno
+- [X] 🟨 **Input types usados correctamente**
+- [X] 🟥 **Label:** Cada input debe tener un label asociado. Si no se puede mostrar la etiqueta visualmente, usar aria-label="Nombre"
 
 ### Accessibility testing
 
@@ -300,28 +349,28 @@ Header set Vary "Accept-Encoding"
 
 ## SEO
 
-- [ ] 🟩 **Instalar y configurar Google Analytics**
+- [X] 🟩 **Instalar y configurar Google Analytics (ir al enlace, despues "Administrar" y en "Crear" crear nueva cuenta)**
 
 - 🛠 [Google Analytics](https://analytics.google.com/analytics/web/)
 - 🛠 [Google Analythics Checker](https://seositecheckup.com/tools/google-analytics-test)
 
-- [ ] 🟩 **Search Console:** Configurada y funcionando para monitorear presencia en Google
+- [X] 🟩 **Search Console:** Configurada y funcionando para monitorear presencia en Google
 
-- 🛠 [Search Console](https://search.google.com/search-console/about)
+- 🛠 [Search Console](https://search.google.com/search-console/welcome)
 
-- [ ] 🟥 **sitemap.xml:** Generar el sitemap.xml, subir a la raiz y subirlo a la Search Console de Google. Se recomienda ponerlo en el robots.txt
+- [X] 🟥 **sitemap.xml:** Generar el sitemap.xml, subir a la raiz y subirlo a la Search Console de Google. Se recomienda ponerlo en el robots.txt
 
 ```txt
-Sitemap: https://travel-translator.com/sitemap.xml
+Sitemap: https://dominio.com/sitemap.xml
 ```
 
 - 🛠 [Sitemap generator](https://www.xml-sitemaps.com/)
 
-- [ ] 🟥 **robots.txt:** Crear, configurar y dejar en la raiz
+- [X] 🟥 **robots.txt:** Crear, configurar y dejar en la raiz
 
 - 🛠 Test robots.txt [Google Robots Testing Tool](https://www.google.com/webmasters/tools/robots-testing-tool)
 
-- [ ] 🟨 **Structured Data:** Si la página necesita de resultados enriquecidos para Google, configurarlos y testearlos
+- [X] 🟨 **Structured Data:** Si la página necesita de resultados enriquecidos para Google, configurarlos y testearlos
 
 - 🛠 [Rich Results Test](https://search.google.com/test/rich-results)
 - 🛠 [Schema Validator](https://validator.schema.org/)
@@ -337,33 +386,6 @@ Sitemap: https://travel-translator.com/sitemap.xml
 - [ ] 🟥 **Cookie:** SI hay cookies, que no supere 4096 bytes y no más de 20 cookies, tratar de evitarlas.
 - [ ] 🟥 **Evitar request HTTP innecesarias**
 - [ ] 🟥 **Revisar archivos con 404**
-- [ ] 🟥 **Configurar cache de headers HTTP**
-
-```html
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/jpg "access plus 1 year"
-</IfModule>
-
-<IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|ico)$">
-    Header set Cache-Control "public, max-age=31536000"
-  </FilesMatch>
-</IfModule>
-```
-
-- [ ] 🟥 **Compresión GZIP**
-
-```html
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
-</IfModule>
-```
-
----
 
 * [ ] **Corregir errores de ortografia con code spell checker**
   [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
@@ -382,10 +404,7 @@ Sitemap: https://travel-translator.com/sitemap.xml
 * [X] [Headers de Seguridad Snyk](https://securityheaders.io/)
 * [X] [Headers de Seguridad Redbot](https://redbot.org/)
 * [ ] [Headers de Seguridad Mozilla](https://observatory.mozilla.org/)
-* [ ] 
-
-
-
+* [ ]
 
 - 🛠 [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
 - 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)

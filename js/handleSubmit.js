@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Crear un objeto con los datos del formulario
     const data = {
-      to: "webdevelopment.ag@gmail.com", // Reemplaza con la dirección de correo electrónico del destinatario
+      to: "contacto@geasrl.com.ar",
       titulo: "Nuevo mensaje de contacto",
       texto: message,
       subject: "Nuevo mensaje de contacto",

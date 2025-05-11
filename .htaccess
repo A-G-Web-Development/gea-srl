@@ -1,0 +1,97 @@
+# Variables de configuración para caché (modifica estos valores según necesites)
+# ============================================================
+# Tiempo de caché general en segundos (86400 = 1 día)
+SetEnv CACHE_TIME 86400
+# Tiempo de caché para recursos estáticos en segundos (31536000 = 1 año)
+SetEnv CACHE_TIME_STATIC 31536000
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Obliga a los navegadores a usar HTTPS para todas las conexiones futuras
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Evita ataques de tipo MIME sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # Evita que el sitio sea cargado en iframes de otros dominios
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Activa la protección XSS integrada en navegadores más antiguos
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Controla la información que se envía en el encabezado Referer
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Define qué recursos puede cargar el navegador (personalizar segun cada página)
+  # Header set Content-Security-Policy "
+  #   default-src 'none';
+  #   script-src 'self' https://www.googletagmanager.com https://cdn.tailwindcss.com 'unsafe-inline';
+  #   style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+  #   font-src 'self' https://fonts.gstatic.com;
+  #   img-src 'self' data:;
+  #   connect-src 'self';
+  #   frame-ancestors 'none';
+  #   base-uri 'self';
+  #   form-action 'self';
+  # "
+
+  # Controla qué características y APIs pueden usar el sitio web
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), sync-xhr=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), xr-spatial-tracking=(), autoplay=()"
+  
+  # Previene problemas de caché relacionados con la compresión
+  Header set Vary "Accept-Encoding"
+  
+  # Cache-Control General - COMENTADO para evitar problemas durante el desarrollo
+  # Header set Cache-Control "public, max-age=%{CACHE_TIME}e"
+  
+  # Cache-Control para archivos estáticos - COMENTADO para evitar problemas durante el desarrollo
+  # <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2)$">
+  #   Header set Cache-Control "public, max-age=%{CACHE_TIME_STATIC}e"
+  # </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # Comprimir tipos de contenido
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/x-javascript text/javascript
+  
+  # También comprimir archivos por extensión
+  <FilesMatch "\.(js|css|html|htm|php|xml)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+# Configuración de caché para tipos específicos de archivos - COMENTADO para desarrollo
+# ============================================================
+# <IfModule mod_expires.c>
+#   ExpiresActive On
+#   ExpiresByType application/javascript "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType text/css "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/png "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/jpg "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/jpeg "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/gif "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/svg+xml "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType image/webp "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType font/woff "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType font/woff2 "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType application/font-woff "access plus %{CACHE_TIME_STATIC}e seconds"
+#   ExpiresByType application/font-woff2 "access plus %{CACHE_TIME_STATIC}e seconds"
+# </IfModule>
+
+# Prevenir acceso a archivos sensibles
+# ============================================================
+<FilesMatch "(^\.htaccess|\.htpasswd|\.git|\.env|composer\.json|composer\.lock|package\.json|package-lock\.json|config\.php|wp-config\.php)">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Desactivar listado de directorios, no se muestra nada si no hay un index.{extension} en la carpeta
+# ============================================================
+Options -Indexes
+
+# Nota: Para que HSTS preload funcione, hay que registrar el dominio en https://hstspreload.org/#submission-form

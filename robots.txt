@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Sitemap: https://geasrl.com.ar/sitemap.xml
+
+# Optimización para Google
+User-agent: Googlebot
+Allow: /
+
+# Optimización para Bing
+User-agent: Bingbot
+Allow: /
+
+# Optimización para imágenes
+User-agent: Googlebot-Image
+Allow: /images/ 
