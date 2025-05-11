@@ -2,8 +2,6 @@
 
 ## Head
 
-> [Toda la información](https://github.com/joshbuchea/HEAD) relevante sobre la etiqueta `<head>` de un documento HTML.
-
 ### Meta tag
 
 - [X] 🟥 **Doctype**
@@ -127,27 +125,9 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 - [ ] 🟨 **Noopener:** Para cada link con `target="_blank"`, agregarle `rel="noopener"`
 - [ ] 🟩 **Borrar comentarios**
 - [ ] 🟨 Los elementos sin etiqueta de cierre no necesitan cerrarce con la barra (/)
-
-### Tests
-
-- [ ] 🟥 **W3C compliant**
-
-- 🛠 [W3C validator](https://validator.w3.org/)
-- 🛠 [HTML5 validator](https://html5.validator.nu/)
-
-- [ ] 🟥 **HTML Lint**
-
-- 🛠 [webhint](https://webhint.io/)
-
-- [ ] 🟥 **Verificar links rotos**
-
-- 🛠 [W3C Link Checker](https://validator.w3.org/checklink)
-
-- [ ] 🟨 **Adblockers test:** Probar que ande todo bien con adblock
+- [X] 🟨 **Adblockers test:** Probar que ande todo bien con adblock
 - [ ] 🟨 **Minificar HTML**
-- [ ] 🟥 **Evitar iframes innecesarios**
-
-🛠 [Cloudinary - Test peso de imagenes](https://webspeedtest.cloudinary.com)
+- [X] 🟥 **Evitar iframes innecesarios**
 
 ---
 
@@ -167,13 +147,11 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
 ## CSS
 
-- [ ] 🟥 **Diseño responsive**
-- [ ] 🟥 **ID unicos**
+- [X] 🟥 **Diseño responsive**
+- [X] 🟥 **ID unicos**
 - [ ] 🟥 **Desktop Browsers:** All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).
 - [ ] 🟥 **Mobile Browsers:** All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).
 - [ ] 🟥 **OS:** All pages were tested on all current OS (Windows, Android, iOS, Mac...).
-
-🛠 [Online cross-browser testing](https://www.browserling.com/)
 
 ---
 
@@ -189,20 +167,20 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 - 🛠 [SVGOMG - Optimize SVG vector graphics files](https://jakearchibald.github.io/svgomg/)
 
 - [ ] 🟨 **Picture/Srcset:** You use picture/srcset to provide the most appropriate image for the current viewport of the user.
-- [ ] 🟥 **Alternative text:** Todas las `<img>` deben tener un texto alt, almenos que sean decorativas, y no tiene que tener title al mismo tiempo
-- [ ] 🟨 **Lazy loading:** Agregar el siguiente atributo a todas las `<img>` que no estén en el primer viewport loading="lazy"
+- [X] 🟥 **Alternative text:** Todas las `<img>` deben tener un texto alt, almenos que sean decorativas, y no tiene que tener title al mismo tiempo
+- [X] 🟨 **Lazy loading:** Agregar el siguiente atributo a todas las `<img>` que no estén en el primer viewport loading="lazy"
 - [ ] 🟥 **Images format:** Con [Lighthouse](https://developers.google.com/web/tools/lighthouse/) se puede saber que formatos son mejores para cada imagen
-- [ ] 🟨 **Images dimensions:** Poner `width` y `height` en las `<img>`
+- [X] 🟨 **Images dimensions:** Poner `width` y `height` en las `<img>`
 - [ ] 🟨 **Imagenes responsive:** Usar `srcset` y `picture` para declarar los tamaños de imagen para cada pantalla.
 
 ---
 
 ## JavaScript
 
-- [ ] 🟥 **JavaScript Inline:** Evitar codigo JS dentro del HTML.
+- [X] 🟥 **JavaScript Inline:** Evitar codigo JS dentro del HTML.
 - [ ] 🟥 **Non-blocking JavaScript:** Usar el atributo `async` o `defer` según sea necesario para mejorar el tiempo de carga
 - [ ] 🟨 **Librerias actualizadas**
-- [ ] 🟨 **`noscript` tag**
+- [X] 🟨 **`noscript` tag**
 
 ```html
 <noscript> You need to enable JavaScript to run this app. </noscript>
@@ -212,15 +190,9 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
 ## Security
 
-### Headers HTTP
+### HTACCESS
 
-- [securityheaders.io](https://securityheaders.io/)
-- [redbot.org](https://redbot.org/)
-- [Observatory by Mozilla](https://observatory.mozilla.org/)
-
-### Best practices
-
-- [ ] 🟨 **HTTP Strict Transport Security (HSTS):** En el .htaccess poner lo siguiente para evitar el http solo
+- [X] 🟨 **HTTP Strict Transport Security (HSTS):** En el .htaccess poner lo siguiente para evitar que no usen https
 
 ```html
 <IfModule mod_headers.c>
@@ -228,21 +200,21 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 </IfModule>
 ```
 
-- [ ] 🟥 **Cross Site Request Forgery (CSRF):** Si tiene una comunicación constante con el back configurar el CSRF
-- [ ] 🟥 **Cross Site Scripting (XSS):** Evitar si es posible dangerouslySetInnerHTML. Si se usa, sanitizar con una libreria (ej: dompurify)
-- [ ] 🟨 **Content Type Options:** Agregar al htaccess
+* [Registrar dominio](https://hstspreload.org/#submission-form "para que preload funcione, hay que registrar el dominio en una lista que lo habilita")
+
+- [X] 🟨 **Content Type Options:** Agregar al htaccess (evita ataques de archivos sin extensión)
 
 ```html
 Header set X-Content-Type-Options "nosniff"
 ```
 
-- [ ] 🟨 **X-Frame-Options (XFO):** Agregar al htaccess
+- [X] 🟨 **X-Frame-Options (XFO):** Agregar al htaccess (evita que otras personas inserten el sitio en un iframe, evita ataques de pishing)
 
 ```html
 Header set X-Frame-Options "SAMEORIGIN"
 ```
 
-- [ ] 🟨 **Content Security Policy:** Agregar al htaccess y personalizar segun cada página (este es muy complejo)
+- [X] 🟨 **Content Security Policy:** Agregar al htaccess y personalizar segun cada página (este es muy complejo, sirve para evitar que inyecten codigo)
 
 ```html
 # Content Security Policy (CSP)
@@ -256,6 +228,29 @@ Header set X-XSS-Protection "1; mode=block"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
 Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'"
 ```
+
+- [X] 🟨 **Permissions-Policy:** Agregar al htaccess y personalizar segun cada página según los permisos que necesite (sirve para que los atacantes no puedan usar estos recursos)
+
+```html
+Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), sync-xhr=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), speaker=(), ambient-light-sensor=(), vr=(), autoplay=()"
+```
+
+- [ ] 🟩 **Cache-Control:** Para guardar en cache los recursos de la página en el servidor, aumenta el rendimiento (CALCULAR BIEN EL TIEMPO DE GUARDADO (hacerlo como ultimo paso porque puede evitar que se vea contenido nuevo), el ejemplo es de un día)
+
+```html
+Header set Cache-Control "public, max-age=86400"
+```
+
+- [X] 🟩 **Vary:** Evita errores de cache
+
+```html
+Header set Vary "Accept-Encoding"
+```
+
+### Headers HTTP
+
+- [ ] 🟥 **Cross Site Request Forgery (CSRF):** Si tiene una comunicación constante con el back configurar el CSRF
+- [ ] 🟥 **Cross Site Scripting (XSS):** Evitar si es posible dangerouslySetInnerHTML. Si se usa, sanitizar con una libreria (ej: dompurify)
 
 ---
 
@@ -289,23 +284,16 @@ Header set Content-Security-Policy "default-src 'self'; script-src 'self'; style
 
 ### Performance testing
 
-- [ ] 🟥 **Velocidad de carga:** Todas las páginas tienen un puntaje mayor a 90
-
-- 🛠 [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
-- 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
-- 🛠 [GTmetrix - Website speed and performance optimization](https://gtmetrix.com/)
-- 🛠 [Calibreapp](https://calibreapp.com/tools/website-speed-test)
+- [ ] 🟥 **Velocidad de carga:** Todas las páginas tienen un puntaje mayor a 90 en los test de velocidad
 
 #### Headings
 
-- [ ] 🟥 **H1:** Todas las páginas tienen un helemento `<h1>`
+- [X] 🟥 **H1:** Todas las páginas tienen un helemento `<h1>`
 - [ ] 🟥 **Headings:** Mantener el orden de los encabezados de H1 a H6 sin saltarse ninguno
 - [ ] 🟨 **Input types usados correctamente**
 - [ ] 🟥 **Label:** Cada input debe tener un label asociado. Si no se puede mostrar la etiqueta visualmente, usar aria-label="Nombre"
 
 ### Accessibility testing
-
-- 🛠 [Wave testing](http://wave.webaim.org/)
 
 - [ ] 🟥 **Navegación con teclado**
 - [ ] 🟥 **Screen-reader**
@@ -340,31 +328,7 @@ Sitemap: https://travel-translator.com/sitemap.xml
 
 # Front-End Performance Checklist
 
-### Performance tools
-
-- 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
-- 🛠 ☆ [Dareboost: Website Speed Test and Website Analysis](https://www.dareboost.com/) (use the coupon WPCDD20 for -20%)
-- 🛠 [Treo: Page Speed Monitoring](https://treo.sh/?ref=perfchecklist)
-- 🛠 [GTmetrix | Website Speed and Performance Optimization](https://gtmetrix.com/)
-- 🛠 [Pingdom Website Speed Test](https://tools.pingdom.com)
-- 📖 [Make the Web Faster | Google Developers](https://developers.google.com/speed/)
-- 🛠 [Sitespeed.io - Welcome to the wonderful world of Web Performance](https://www.sitespeed.io/)
-- 🛠 [Calibre](https://calibreapp.com/)
-- 🛠 [Website Speed Test | Check Web Performance &raquo; Dotcom-Tools](https://www.dotcom-tools.com/website-speed-test.aspx)
-- 🛠 [Website and Server Uptime Monitoring - Pingdom](https://www.pingdom.com/product/uptime-monitoring/) ([Free Signup Link](https://www.pingdom.com/free))
-- 🛠 [Uptime Robot](https://uptimerobot.com)
-- 🛠 [SpeedCurve: Monitor front-end performance](https://speedcurve.com)
-- 🛠 [PWMetrics - CLI tool and lib to gather performance metrics](https://github.com/paulirish/pwmetrics)
-- 🛠 [Lighthouse - Google](https://developers.google.com/web/tools/lighthouse/#devtools)
-- 🛠 [Checkbot browser extension - Checks for web performance best practices](https://www.checkbot.io/)
-- 🛠 [Yellow Lab Tools | Online test to help speeding up heavy web pages](https://yellowlab.tools/)
-- 🛠 [Speedrank - Web Performance Monitoring](https://speedrank.app/)
-- 🛠 [DebugBear - Monitor website performance and Lighthouse scores](https://www.debugbear.com/)
-- 🛠 [Gravity CI - Check your build artifacts sizes on every pull request.](https://gravity.ci/)
-- 🛠 [Exthouse - Analyze the impact of a browser extension on web performance](https://github.com/treosh/exthouse)
-- 🛠 [LogRocket - Measure front-end performance in production apps](https://logrocket.com)
-
-## Server
+### Server
 
 - [ ] 🟥 **Usa HTTPS**
 - [ ] 🟥 **Peso de la página < 1500 KB**
@@ -401,5 +365,41 @@ Sitemap: https://travel-translator.com/sitemap.xml
 
 ---
 
-Corregir errores de ortografia con code speel checker
-https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
+* [ ] **Corregir errores de ortografia con code spell checker**
+  [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
+
+---
+
+# Tests
+
+* [X] 🛠 [W3C validator](https://validator.w3.org/)
+* [X] 🛠 [HTML5 validator](https://html5.validator.nu/)
+* [X] 🛠 [HTML Lint](https://webhint.io/)
+* [X] 🛠 [Link Checker](https://validator.w3.org/checklink)
+* [X] 🛠 [Online cross-browser testing](https://www.browserling.com/)
+* [X] 🛠 [Accesibilidad](http://wave.webaim.org/)
+* [ ] 🛠 [Test peso de imagenes](https://webspeedtest.cloudinary.com)
+* [X] [Headers de Seguridad Snyk](https://securityheaders.io/)
+* [X] [Headers de Seguridad Redbot](https://redbot.org/)
+* [ ] [Headers de Seguridad Mozilla](https://observatory.mozilla.org/)
+* [ ] 
+
+
+
+
+- 🛠 [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
+- 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
+- 🛠 [GTmetrix - Website speed and performance optimization](https://gtmetrix.com/)
+- 🛠 [Calibreapp](https://calibreapp.com/tools/website-speed-test)
+- 🛠 ☆ [Dareboost: Website Speed Test and Website Analysis](https://www.dareboost.com/) (use the coupon WPCDD20 for -20%)
+- 🛠 [Treo: Page Speed Monitoring](https://treo.sh/)
+- 🛠 [Pingdom Website Speed Test](https://tools.pingdom.com)
+- 🛠 [Sitespeed.io - Welcome to the wonderful world of Web Performance](https://www.sitespeed.io/)
+- 🛠 [Website Speed Test | Check Web Performance &raquo; Dotcom-Tools](https://www.dotcom-tools.com/website-speed-test.aspx)
+- 🛠 [Website and Server Uptime Monitoring - Pingdom](https://www.pingdom.com/product/uptime-monitoring/) ([Free Signup Link](https://www.pingdom.com/free))
+- 🛠 [Uptime Robot](https://uptimerobot.com)
+- 🛠 [SpeedCurve: Monitor front-end performance](https://speedcurve.com)
+- 🛠 [Lighthouse - Google](https://developers.google.com/web/tools/lighthouse/#devtools)
+- 🛠 [Checkbot browser extension - Checks for web performance best practices](https://www.checkbot.io/)
+- 🛠 [Yellow Lab Tools | Online test to help speeding up heavy web pages](https://yellowlab.tools/)
+- 🛠 [LogRocket - Measure front-end performance in production apps](https://logrocket.com)

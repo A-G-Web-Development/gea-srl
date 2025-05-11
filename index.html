@@ -168,23 +168,6 @@
                 </button>
             </div>
         </div>
-
-        <script>
-            let verMasBtn = document.getElementById("ver-mas-btn");
-            let parrafosOcultos = document.querySelectorAll(".parrafo-oculto");
-
-            verMasBtn.addEventListener("click", () => {
-                parrafosOcultos.forEach((parrafo) => {
-                    parrafo.classList.toggle("parrafo-oculto");
-                });
-
-                if (verMasBtn.innerText.trim() == "Ver más") {
-                    verMasBtn.innerText = "Ver menos";
-                } else {
-                    verMasBtn.innerText = "Ver más";
-                }
-            });
-        </script>
     </section>
 
     <section id="beneficios" class="s-about target-section">
@@ -309,22 +292,6 @@
             </button>
         </div>
 
-        <script>
-            let verMasBtn2 = document.getElementById("ver-mas-btn2");
-            let parrafosOcultos2 = document.querySelectorAll(".parrafo-oculto2");
-
-            verMasBtn2.addEventListener("click", () => {
-                parrafosOcultos2.forEach((parrafo) => {
-                    parrafo.classList.toggle("parrafo-oculto2");
-                });
-
-                if (verMasBtn2.innerText.trim() == "Ver más") {
-                    verMasBtn2.innerText = "Ver menos";
-                } else {
-                    verMasBtn2.innerText = "Ver más";
-                }
-            });
-        </script>
     </section>
 
     <section id="servicios" class="s-services target-section darker">
@@ -644,6 +611,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/ocultar-parrafo.js"></script>
 </body>
 
 </html>
