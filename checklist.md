@@ -2,8 +2,6 @@
 
 ## Head
 
-### Meta tag
-
 - [X] 🟥 **Doctype**
 
 ```html
@@ -57,8 +55,6 @@ Las siguientes 2 etiquetas meta (Charset y Viewport) deben ir primero dentro del
 <link rel="canonical" href="https://example.com/blog">
 ```
 
-### HTML tags
-
 - [X] 🟥 **Atributo de idioma:** Configurar el `lang` con el idioma de la página
 
 ```html
@@ -81,7 +77,7 @@ Las siguientes 2 etiquetas meta (Charset y Viewport) deben ir primero dentro del
 - [ ] 🟨 **CSS Critical (investigar):** The CSS critical (or "above the fold") collects all the CSS used to render the visible portion of the page. It is embedded before your principal CSS call and between `<style></style>` in a single line (minified).
 - [X] 🟥 **CSS orden:** Todos los archivos CSS se cargan antes que cualquier archivo JavaScript en el `<head>`. (Excepto en el caso en que, a veces, los archivos JS se cargan de forma asincrónica en la parte superior de tu página).
 
-### Social meta
+---
 
 Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
@@ -117,6 +113,8 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 - 🛠 Test your page with the [Twitter card validator](https://cards-dev.twitter.com/validator)
 - 🛠 Test your page with the [Twitter card validator preview](https://typefully.com/tools/twitter-card-validator)
 
+---
+
 ## HTML
 
 - [ ] 🟥 **HTML5 Elementos Semanticos**
@@ -128,6 +126,10 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 - [X] 🟨 **Adblockers test:** Probar que ande todo bien con adblock
 - [ ] 🟨 **Minificar HTML**
 - [X] 🟥 **Evitar iframes innecesarios**
+- [X] 🟥 **H1:** Todas las páginas tienen un helemento `<h1>`
+- [X] 🟥 **Headings:** Mantener el orden de los encabezados de H1 a H6 sin saltarse ninguno
+- [X] 🟨 **Input types usados correctamente**
+- [X] 🟥 **Label:** Cada input debe tener un label asociado. Si no se puede mostrar la etiqueta visualmente, usar aria-label="Nombre"
 
 ---
 
@@ -188,9 +190,7 @@ Generar las meta tags sociales con [Meta Tags](https://metatags.io/)
 
 ---
 
-## Security
-
-### HTACCESS
+## HTACCESS
 
 - [X] 🟨 **Configurar .htaccess**
 
@@ -296,7 +296,7 @@ Options -Indexes
 
 * [Registrar dominio](https://hstspreload.org/#submission-form "para que preload funcione, hay que registrar el dominio en una lista que lo habilita")
 
-### Headers HTTP
+## Headers HTTP
 
 - [ ] 🟥 **Cross Site Request Forgery (CSRF):** Si tiene una comunicación constante con el back configurar el CSRF
 - [ ] 🟥 **Cross Site Scripting (XSS):** Evitar si es posible dangerouslySetInnerHTML. Si se usa, sanitizar con una libreria (ej: dompurify)
@@ -331,17 +331,6 @@ Options -Indexes
 <link rel="preload" href="app.js" />
 ```
 
-### Performance testing
-
-- [ ] 🟥 **Velocidad de carga:** Todas las páginas tienen un puntaje mayor a 90 en los test de velocidad
-
-#### Headings
-
-- [X] 🟥 **H1:** Todas las páginas tienen un helemento `<h1>`
-- [X] 🟥 **Headings:** Mantener el orden de los encabezados de H1 a H6 sin saltarse ninguno
-- [X] 🟨 **Input types usados correctamente**
-- [X] 🟥 **Label:** Cada input debe tener un label asociado. Si no se puede mostrar la etiqueta visualmente, usar aria-label="Nombre"
-
 ### Accessibility testing
 
 - [ ] 🟥 **Navegación con teclado**
@@ -375,9 +364,7 @@ Sitemap: https://dominio.com/sitemap.xml
 - 🛠 [Rich Results Test](https://search.google.com/test/rich-results)
 - 🛠 [Schema Validator](https://validator.schema.org/)
 
-# Front-End Performance Checklist
-
-### Server
+## Server
 
 - [ ] 🟥 **Usa HTTPS**
 - [ ] 🟥 **Peso de la página < 1500 KB**
@@ -385,40 +372,34 @@ Sitemap: https://dominio.com/sitemap.xml
 - [ ] 🟥 **TTFB < 1.3 seconds**
 - [ ] 🟥 **Cookie:** SI hay cookies, que no supere 4096 bytes y no más de 20 cookies, tratar de evitarlas.
 - [ ] 🟥 **Evitar request HTTP innecesarias**
-- [ ] 🟥 **Revisar archivos con 404**
-
-* [ ] **Corregir errores de ortografia con code spell checker**
-  [code-spell-checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
+- [ ] 🟥 Corregir errores de ortografia con code spell checker [code-spell-checker
+  ](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish)
 
 ---
 
-# Tests
+## Tests
 
-* [X] 🛠 [W3C validator](https://validator.w3.org/)
-* [X] 🛠 [HTML5 validator](https://html5.validator.nu/)
-* [X] 🛠 [HTML Lint](https://webhint.io/)
-* [X] 🛠 [Link Checker](https://validator.w3.org/checklink)
-* [X] 🛠 [Online cross-browser testing](https://www.browserling.com/)
-* [X] 🛠 [Accesibilidad](http://wave.webaim.org/)
-* [ ] 🛠 [Test peso de imagenes](https://webspeedtest.cloudinary.com)
+* [X] [W3C validator](https://validator.w3.org/)
+* [X] [HTML5 validator](https://html5.validator.nu/)
+* [X] [HTML Lint](https://webhint.io/)
+* [X] [404 Link Checker](https://validator.w3.org/checklink)
+* [X] [Online cross-browser testing](https://www.browserling.com/)
+* [X] [Accesibilidad](http://wave.webaim.org/)
+* [ ] [Test peso de imagenes](https://webspeedtest.cloudinary.com)
+* [X] [Gzip](https://www.giftofspeed.com/gzip-test/)
+* [X] [HTTP/2](https://tools.keycdn.com/http2-test)
+
+### Encabezados
+
 * [X] [Headers de Seguridad Snyk](https://securityheaders.io/)
 * [X] [Headers de Seguridad Redbot](https://redbot.org/)
-* [ ] [Headers de Seguridad Mozilla](https://observatory.mozilla.org/)
-* [ ]
+* [X] [Headers de Seguridad Mozilla](https://observatory.mozilla.org/)
 
-- 🛠 [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
-- 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
-- 🛠 [GTmetrix - Website speed and performance optimization](https://gtmetrix.com/)
-- 🛠 [Calibreapp](https://calibreapp.com/tools/website-speed-test)
-- 🛠 ☆ [Dareboost: Website Speed Test and Website Analysis](https://www.dareboost.com/) (use the coupon WPCDD20 for -20%)
-- 🛠 [Treo: Page Speed Monitoring](https://treo.sh/)
-- 🛠 [Pingdom Website Speed Test](https://tools.pingdom.com)
-- 🛠 [Sitespeed.io - Welcome to the wonderful world of Web Performance](https://www.sitespeed.io/)
-- 🛠 [Website Speed Test | Check Web Performance &raquo; Dotcom-Tools](https://www.dotcom-tools.com/website-speed-test.aspx)
-- 🛠 [Website and Server Uptime Monitoring - Pingdom](https://www.pingdom.com/product/uptime-monitoring/) ([Free Signup Link](https://www.pingdom.com/free))
-- 🛠 [Uptime Robot](https://uptimerobot.com)
-- 🛠 [SpeedCurve: Monitor front-end performance](https://speedcurve.com)
-- 🛠 [Lighthouse - Google](https://developers.google.com/web/tools/lighthouse/#devtools)
-- 🛠 [Checkbot browser extension - Checks for web performance best practices](https://www.checkbot.io/)
-- 🛠 [Yellow Lab Tools | Online test to help speeding up heavy web pages](https://yellowlab.tools/)
-- 🛠 [LogRocket - Measure front-end performance in production apps](https://logrocket.com)
+### Test Performance y Optimización
+
+* [ ] [Google PageSpeed más de 90](https://developers.google.com/speed/pagespeed/insights/)
+* [ ] [WebPagetest](https://www.webpagetest.org/)
+* [ ] [GTmetrix](https://gtmetrix.com/)
+* [ ] [Calibreapp](https://calibreapp.com/tools/website-speed-test)
+* [ ] [Pingdom](https://tools.pingdom.com)
+* [ ] [Yellow Lab Tools](https://yellowlab.tools/)
