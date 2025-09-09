@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const body = {
       template: "contacto-generico",
       origen_name: "gea-s-r-l",
-      campania_name: "prueba",
+      campania_name: "contacto",
       data: {
         nombre: name,
         email: email,
